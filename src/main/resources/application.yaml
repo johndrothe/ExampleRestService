@@ -5,8 +5,8 @@ logging.level.work.rothe: DEBUG
 logging.level.io.github.resilience4j: TRACE
 logging.level.org.springframework.cache: TRACE
 
-work.rothe.branch.github.connect_timeout: 10000
-work.rothe.branch.github.read_timeout: 10000
+work.rothe.branch.github.connect_timeout: 3s
+work.rothe.branch.github.read_timeout: 1500ms
 work.rothe.branch.github.users_url: https://api.github.com/users/{userId}
 work.rothe.branch.github.repos_url: https://api.github.com/users/{userId}/repos
 
