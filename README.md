@@ -72,9 +72,7 @@ The service should respond with a JSON document that resembles the following.
 # To-do
 1) Add tests for the cache in GitHubUsersService.
 2) GitHubClient
-   1) Add Resilience 4j Retry
-   2) Add configurable HTTP connection pools
-   3) Switch from RestTemplate to WebClient if required for performance.
-3) Add an "Error Response" DTO to use as a standard format for failures.
-4) Add @Async to GitHubUsersService and run requests in parallel with a virtual thread pool.
-5) Add viable JavaDoc to each class.
+   1) Add configurable HTTP connection pools
+   2) Switch from RestTemplate to WebClient if required for performance.
+3) Add @Async to GitHubUsersService and run requests in parallel with a virtual thread pool.
+4) Add viable JavaDoc to each class.
