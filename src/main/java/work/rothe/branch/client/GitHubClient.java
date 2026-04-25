@@ -1,5 +1,6 @@
 package work.rothe.branch.client;
 
+import io.github.resilience4j.retry.annotation.Retry;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpEntity;
@@ -30,12 +31,14 @@ public class GitHubClient {
         this.restTemplate = githubRestTemplate;
     }
 
+    @Retry(name="githubClient")
     public ResponseEntity<GitHubUser> getUser(String userId) throws RestClientException {
         log.debug("Requesting user information for userId: {}", userId);
         return restTemplate.exchange(properties.usersUrl(), GET, new HttpEntity<>(getHeaders()),
                 GitHubUser.class, Map.of("userId", userId));
     }
 
+    @Retry(name="githubClient")
     public ResponseEntity<List<GitHubRepo>> getRepositories(String userId) throws RestClientException {
         log.debug("Requesting repository information for userId: {}", userId);
         return restTemplate.exchange(properties.reposUrl(), GET,
