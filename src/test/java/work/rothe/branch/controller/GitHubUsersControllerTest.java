@@ -8,10 +8,7 @@ import work.rothe.branch.service.GitHubUsersService;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 public class GitHubUsersControllerTest {
     private final GitHubUsersService usersService = mock(GitHubUsersService.class);
@@ -20,7 +17,7 @@ public class GitHubUsersControllerTest {
     @Test
     void getUserById() {
         when(usersService.getUserByIdFailFast("octocat"))
-                .thenReturn(ResponseEntity.ok(sampleDto()));
+                .thenReturn(sampleDto());
 
         assertEquals(ResponseEntity.ok(sampleDto()), controller.getUserById("octocat"));
         verify(usersService, times(1)).getUserByIdFailFast("octocat");

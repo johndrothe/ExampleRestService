@@ -1,6 +1,6 @@
 plugins {
 	id 'java'
-	id 'org.springframework.boot' version '3.4.2'
+	id 'org.springframework.boot' version '3.5.14'
 	id 'io.spring.dependency-management' version '1.1.7'
 }
 
@@ -19,12 +19,13 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-cache'
 	implementation 'com.fasterxml.jackson.core:jackson-annotations'
+	implementation "com.github.ben-manes.caffeine:caffeine:3.2.3"
 
-	compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.36'
-	annotationProcessor 'org.projectlombok:lombok'
-	implementation group: 'com.github.ben-manes.caffeine', name: 'caffeine', version: '3.2.0'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	compileOnly "org.projectlombok:lombok:1.18.36"
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
